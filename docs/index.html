@@ -1,0 +1,188 @@
+---
+layout: home
+title:
+class:
+base_url: "./"
+---
+<main class="site-masthead " role="main">
+  <div class="container">
+    <h1>{{ site.title }}</h1>
+    <p class="lead">{{ page.title }}</p>
+    <p><a href="{{ site.repo_url }}" class="rippler rippler-inverse button button-border button-lg">Download on GitHub</a></p>
+
+    {% include social-buttons.html %}  
+    <p>Currently v{{ site.current_version }}  ･  Authtor : <a href="https://twitter.com/blivesta/">@blivesta</a>
+    <br>
+    Licensed under the MIT.</p>
+  </div><!-- /.container -->
+</main>
+
+<div class="site-body">
+  <div class="site-body-inner container">
+
+    <div class="site-section">
+    	<h2 class="site-section-title">Examples<!-- <br><small>Click Or Touch</small> --></h2>
+      <p class="site-icon-mark"><span class="oi oi-beaker"></span></p>
+
+      <div class="site-section-item">
+        <h3 class="site-section-sub-title">Bootstrap Buttons</h3>
+        <ul class="list-inline site-example-nav">
+          <li>
+            <a class="btn btn-default rippler rippler-inverse" href="#">
+              <span class="oi oi-chevron-right"></span>
+              &nbsp;rippler-inverse
+            </a>
+          </li>
+          <li>
+            <button class="btn btn-primary rippler rippler-default">
+              <span class="oi oi-star"></span>
+              &nbsp;rippler-default
+            </button>
+          </li>
+          <li>
+            <a class="btn btn-success rippler rippler-inverse" href="#">
+              <span class="oi oi-check"></span>
+              &nbsp;rippler-inverse
+            </a>
+          </li>
+          <li>
+            <a class="btn btn-info rippler rippler-default" href="#">
+              <span class="oi oi-info"></span>
+              &nbsp;rippler-default
+            </a>
+          </li>
+        </ul>
+
+        <ul class="list-inline site-example-nav">
+          <li>
+            <a class="btn btn-warning btn-lg rippler rippler-inverse" href="#">
+              <span class="oi oi-warning"></span>
+              &nbsp;rippler-inverse
+            </a>
+          </li>
+          <li>
+            <a class="btn btn-danger btn-lg rippler rippler-default" href="#">
+              <span class="oi oi-ban"></span>
+              &nbsp;rippler-default
+            </a>
+          </li>
+        </ul>
+
+{% highlight html %}
+<a class="btn btn-default rippler rippler-inverse" href="#">rippler-inverse</a>
+<button class="btn btn-primary rippler rippler-default">rippler-default</button>
+<a class="btn btn-success rippler rippler-inverse" href="#">rippler-inverse</a>
+<a class="btn btn-info rippler rippler-default" href="#">rippler-default</a>
+<a class="btn btn-warning btn-lg rippler rippler-inverse" href="#">rippler-inverse</a>
+<a class="btn btn-danger btn-lg rippler rippler-default" href="#">rippler-default</a>
+{% endhighlight %}
+      </div><!-- / .site-section-item -->
+
+
+      <div class="site-section-item">
+        <h3 class="site-section-sub-title">with state colors</h3>
+        <ul class="list-inline site-example-nav">
+          <li>
+            <a class="btn btn-link rippler rippler-bs-primary" href="#">
+              <span class="oi oi-star"></span>
+              &nbsp;rippler-bs-primary
+            </a>
+          </li>
+          <li>
+            <a class="btn btn-link text-success rippler rippler-bs-success" href="#">
+              <span class="oi oi-check"></span>
+              &nbsp;rippler-bs-success
+            </a>
+          </li>
+          <li>
+            <a class="btn btn-link text-info rippler rippler-bs-info" href="#">
+              <span class="oi oi-info"></span>
+              &nbsp;rippler-bs-info
+            </a>
+          </li>
+        </ul>
+
+        <ul class="list-inline site-example-nav">
+          <li>
+            <a class="btn btn-link text-warning btn-lg rippler rippler-bs-warning" href="#">
+              <span class="oi oi-warning"></span>
+              &nbsp;rippler-inverse
+            </a>
+          </li>
+          <li>
+            <a class="btn btn-link text-danger btn-lg rippler rippler-bs-danger" href="#">
+              <span class="oi oi-ban"></span>
+              &nbsp;rippler-default
+            </a>
+          </li>
+        </ul>
+{% highlight html %}
+<a class="btn btn-link rippler rippler-bs-primary" href="#">...</a>
+<a class="btn btn-link text-success rippler rippler-bs-success" href="#">...</a>
+<a class="btn btn-link text-info rippler rippler-bs-info" href="#">...</a>
+<a class="btn btn-link text-warning btn-lg rippler rippler-bs-warning" href="#">...</a>
+<a class="btn btn-link text-danger btn-lg rippler rippler-bs-danger" href="#">...</a>
+{% endhighlight %}
+      </div><!-- / .site-section-item -->
+
+      <div class="site-section-item">
+        <div class="row">
+
+          <div class="col col-12" style="margin-bottom:-20px;">
+            <h3 class="site-section-sub-title">Square Image</h3>
+            <span class="rippler rippler-img rippler-bs-success center-block" style="max-width:500px">
+              <img class="img-responsive" src="{{ page.base_url }}assets/images/tokyo.jpg" />
+            </span>
+{% highlight html %}
+<span class="rippler rippler-img rippler-bs-success">
+  <img class="img-responsive" src="image.jpg">
+</span>
+{% endhighlight %}
+          </div>
+          
+<!--           <div class="col col-6">
+            <h3 class="site-section-sub-title">Circle image</h3>
+            <span class="rippler rippler-img rippler-circle-musk rippler-bs-primary">
+              <img class="img-responsive" src="{{ page.base_url }}assets/images/tokyo.jpg" />
+            </span>
+{% highlight html %}
+<span class="rippler rippler-img rippler-circle-musk rippler-bs-primary">
+  <img class="img-responsive" src="image.jpg">
+</span>
+{% endhighlight %}
+          </div>
+ -->
+        </div><!-- / .row -->
+			</div><!-- / .site-section-item -->
+
+     </div><!-- / .site-section -->
+
+    <div class="site-section">
+      <h2 class="site-section-title">Installation</h2>
+      <p class="site-icon-mark"><span class="oi oi-code"></span></p>
+      <p class="lead"></p>
+      <div class="site-section-body">
+          <p><a href="{{ site.repo_url }}" class="button button-border-primary button-lg">Download on GitHub</a></p>
+
+        {% include example-setup.html %}
+      </div>
+    </div>
+
+<!--     <div class="site-section">
+      <h2 class="site-section-title">Browser support</h2>
+      <p class="site-icon-mark"><span class="oi oi-browser"></span></p>
+      <p class="lead">Requires a browser that CSS3 is supported.</p>
+      <div class="site-section-body">
+        <ul class="list-inline">
+          <li><span class="label-class">IE10+</span></li>
+          <li><span class="label-class">Safari</span></li>
+          <li><span class="label-class">Chrome</span></li>
+          <li><span class="label-class">Firefox</span></li>
+          <li><span class="label-class">Opera</span></li>
+        </ul>
+      </div>
+    </div>
+ -->
+  </div><!-- /.container -->
+</div><!-- /.site-body -->
+  

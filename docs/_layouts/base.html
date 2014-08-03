@@ -1,0 +1,26 @@
+{% include head.html %}
+<body class="{{ page.class }} site-base">
+  <div class="animsition animsition-in-duration" data-animsition-in="{{ page.inAnimateClass }}" data-animsition-out="{{ page.outAnimateClass }}">
+
+    {% include header.html %}
+
+		<main class="site-masthead" role="main">
+		  <div class="container">
+		  	<h1>{{ page.title }}</h1>
+		    <p class="lead">{{ site.discription }}</p>
+		  </div><!-- /.container -->
+		</main>
+
+		<div class="site-body">
+		  <div class="site-body-inner container">
+
+		    {{ content }}
+		  
+		  </div><!-- /.container -->
+		</div><!-- /.site-body -->
+
+    {% include footer.html %}
+
+  </div><!-- /.site-wrapper -->
+</body>
+</html>

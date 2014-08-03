@@ -1,0 +1,33 @@
+<p class="lead">Step 1: Link required files</p>
+{% highlight html %}
+<!-- rippler CSS -->
+<link rel="stylesheet" href="{{ page.base_url }}css/rippler.min.css">
+
+<!-- vendor js -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<!-- rippler js -->
+<script src="{{ page.base_url }}dist/js/rippler.min.js"></script>
+{% endhighlight %}
+
+<p class="lead">Step 2: HTML markup</p>
+{% highlight html %}
+<body>
+
+  <button class="btn btn-primary rippler rippler-default" href="#">rippler</button>
+
+</body>
+{% endhighlight %}
+
+<p class="lead">Step 3: Call the rippler</p>
+{% highlight js %}
+$(document).ready(function() {
+  $(".rippler").rippler({
+    effectClass      :  'rippler-effect'
+    ,effectSize      :  16      // Default size (width & height)
+    ,addElement      :  'div'   // e.g. 'svg'(feature)
+    ,duration        :  400
+  });
+}); 
+{% endhighlight %}
+

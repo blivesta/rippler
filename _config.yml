@@ -1,0 +1,20 @@
+markdown:         redcarpet
+pygments:         true
+permalink:        pretty
+exclude:          ['less','*.json','Gruntfile.js','bower_components','node_modules']
+source:           ./docs
+destination:      ./_gh_pages
+encoding:         UTF-8
+title:            Rippler
+discription:      
+url:              http://git.blivesta.com/rippler
+repo:             rippler
+repo_url:         https://github.com/blivesta/rippler
+author:           blivesta
+author_url:       http://blivesta.com
+current_version:  0.0.1
+twitter:          blivesta
+tag:              
+git_fork_btn:     http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=rippler&amp;type=fork&amp;count=true
+git_star_btn:     http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=rippler&amp;type=watch&amp;count=true
+git_follow_btn:   http://ghbtns.com/github-btn.html?user=blivesta&type=follow&count=false

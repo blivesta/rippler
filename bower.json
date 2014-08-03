@@ -1,0 +1,41 @@
+{
+  "name": "rippler",
+  "description": "a simple and easy jQuery plugin used to add page transition on css animations.",
+  "version": "0.0.1",
+  "keywords": [
+    "css3",
+    "js",
+    "less",
+    "animation",
+    "jquery",
+    "pligin"
+  ],
+  "homepage": "http://git.blivesta.com/rippler",
+  "main": [
+    "dist/less/**",
+    "dist/css/rippler.css",
+    "dist/css/rippler.min.css",
+    "dist/js/rippler.js",
+    "dist/js/rippler.min.js"
+  ],
+  "ignore": [
+    ".*",
+    "src",
+    "*.yml",
+    "*.html",
+    "*.json",
+    "Gruntfile.js"
+  ],
+  "dependencies": {
+    "cooker": "~0.4.7"
+  },
+  "exportsOverride": {
+    "cooker": {
+      "js": "dist/js/dropdown.js",
+      "css": "dist/css/",
+      "less": "dist/less/"
+    }
+  }
+
+
+}
