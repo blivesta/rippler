@@ -1,0 +1,18 @@
+// drilldown
+.drilldown {
+  .drilldown-level(10);
+}
+.drilldown-toggle{
+	color: @link-color;
+	.user-select(none);
+	&:hover{
+		cursor: pointer;
+		background-color: @table-bg-hover;
+	}
+	&.dd-open{
+		background-color: @table-bg-active;
+		&:hover{
+			background-color: @table-bg-accent;
+		}
+	}
+}

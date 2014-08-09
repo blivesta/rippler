@@ -1,0 +1,78 @@
+
+// Contextual backgrounds
+.bg-primary {
+  .bg-variant(@primary-color);
+}
+.bg-secondary {
+  .bg-variant(@secondary-color);
+}
+.bg-success {
+  .bg-variant(@success-color);
+}
+.bg-info {
+  .bg-variant(@info-color);
+}
+.bg-warning {
+  .bg-variant(@warning-color);
+}
+.bg-danger {
+  .bg-variant(@danger-color);
+}
+
+
+.bg-primary-state {
+  .bg-variant(@primary-color-lighter);
+}
+.bg-secondary-state {
+  .bg-variant(@secondary-color-lighter);
+}
+.bg-success-state {
+  .bg-variant(@state-success-bg);
+}
+.bg-info-state {
+  .bg-variant(@state-info-bg);
+}
+.bg-warning-state {
+  .bg-variant(@state-warning-bg);
+}
+.bg-danger-state {
+  .bg-variant(@state-danger-bg);
+}
+
+.bg-primary-darker         { background-color: @primary-color-darker ; }
+.bg-primary-dark           { background-color: @primary-color-dark ; }
+.bg-primary-light          { background-color: @primary-color-light ; }
+.bg-primary-lighter        { background-color: @primary-color-lighter ; }
+
+.bg-secondary-darker         { background-color: @secondary-color-darker ; }
+.bg-secondary-dark           { background-color: @secondary-color-dark ; }
+.bg-secondary-light          { background-color: @secondary-color-light ; }
+.bg-secondary-lighter        { background-color: @secondary-color-lighter ; }
+
+.bg-gray             { background-color: @gray ; }
+.bg-gray-darker      { background-color: @gray-darker ; }
+.bg-gray-dark        { background-color: @gray-dark ; }
+.bg-gray-light       { background-color: @gray-light ; }
+.bg-gray-lighter     { background-color: @gray-lighter ; }
+
+
+// Contextual colors
+.text-muted {
+  color: @text-muted;
+}
+.text-primary {
+  .text-emphasis-variant(@primary-color);
+}
+.text-success {
+  .text-emphasis-variant(@state-success-text);
+}
+.text-info {
+  .text-emphasis-variant(@state-info-text);
+}
+.text-warning {
+  .text-emphasis-variant(@state-warning-text);
+}
+.text-danger {
+  .text-emphasis-variant(@state-danger-text);
+}
+

@@ -1,0 +1,367 @@
+//
+// form要素のベースクラス
+// =====================
+// select,
+// textarea,
+// input[type="text"],
+// input[type="password"],
+// input[type="datetime"],
+// input[type="datetime-local"],
+// input[type="date"],
+// input[type="month"],
+// input[type="time"],
+// input[type="week"],
+// input[type="number"],
+// input[type="email"],
+// input[type="url"],
+// input[type="search"],
+// input[type="tel"],
+// input[type="color"],
+.select,
+.checkbox,
+.radio,
+.row-form .row-form-text,
+.input {
+  .placeholder();
+  .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+  .form-focus();
+  display: block;
+  padding: @padding-base-vertical @padding-base-horizontal;
+  width:100%;
+  height:@input-height-base;
+  background-color: @input-bg;
+  background-image: none;
+  color: @input-color;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  border:@input-border;
+  border-radius: @input-border-radius;
+  &.form-sm {
+    .input-size(
+      @input-height-small; 
+      @padding-small-vertical; 
+      @padding-small-horizontal; 
+      @font-size-small; 
+      @line-height-small; 
+      @input-border-radius-sm
+    );
+  }
+  &.form-lg {
+    .input-size(
+      @input-height-large; 
+      @padding-large-vertical; 
+      @padding-large-horizontal; 
+      @font-size-large; 
+      @line-height-large; 
+      @input-border-radius-lg
+    );
+  }
+  &[disabled], 
+  &[readonly] {
+    cursor: not-allowed;
+    background-color: #eee;
+    opacity: 1;
+  }
+}
+
+//
+// input
+// =====================
+.input-fixed{
+  width:@input-width-fixed;
+}
+// input-*
+.input-underline,
+.input-minimal,
+.input-left-bar {
+  outline:none;
+  border: none;
+}
+
+// input-underline
+.input-underline{
+  border-bottom: @input-border;
+  background-color: transparent;
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid @primary-color;
+  }
+}
+
+// input-minimal
+.input-minimal{
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+// input-left-bar
+.input-left-bar{
+  border-left: 3px solid @border-base-color;
+  &:hover,
+  &:focus {
+    border-left: 3px solid @primary-color;
+  }
+}
+
+//
+// select
+// =====================
+.select {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==");
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  &.form-sm {
+    padding: 0 @padding-small-horizontal;
+  }
+  &.form-lg {
+    padding: 0 @padding-large-horizontal;
+  }
+}
+
+//
+// checkbox & radio button
+// =====================
+.checkbox,
+.radio {
+  border:0;
+  background-color: transparent;
+  &:hover{
+    background-color: transparent;
+  }
+}
+.checkbox,
+.checkbox-inline {
+  .checkbox-radio-style("checkbox");
+}
+.radio,
+.radio-inline {
+  .checkbox-radio-style("radio");
+}
+.checkbox-inline,
+.radio-inline {
+  margin-right: 1em;
+  display:inline;
+}
+
+//
+// state color
+// =====================
+.form-info{
+  border-color:@state-info-border;
+  background-color: @state-info-bg;
+  color: @state-info-text;
+  .form-focus(@info-color);
+}
+.form-success{
+  border-color:@state-success-border;
+  background-color: @state-success-bg;
+  color: @state-success-text;
+  .form-focus(@success-color);
+}
+.form-warning{
+  border-color:@state-warning-border;
+  background-color: @state-warning-bg;
+  color: @state-warning-text;
+  .form-focus(@warning-color);
+}
+.form-danger{
+  border-color:@state-danger-border;
+  background-color: @state-danger-bg;
+  color: @state-danger-text;
+  .form-focus(@danger-color);
+}
+
+
+
+//
+// form
+// =====================
+.form{
+  > label{
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+}
+
+//
+// form.inline
+// =====================
+.form-inline{
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+
+//
+// row-form
+// =====================
+.row-form {
+  .row-form-generate(12);
+  .clearfix();
+  //フォームの間に入るテキスト用
+  > .row-form-text {
+    border:0;
+    background-color: transparent;
+    &:hover{
+      background-color: transparent;
+    }
+  }
+  > .input + .button{
+    .border-left-radius(0);
+  }
+}
+
+//
+// input-button-set
+// =====================
+.input-button-set {
+  .clearfix();
+  > .input,
+  > .input-inset-icons {
+    float:left;
+    width:@input-width-fixed;
+  }
+
+  //　前後に付くテキストラベル
+  > .input-prepend-text,
+  > .input-append-text {
+    width:auto;
+    float:left;
+    padding : @padding-base;
+    height : @input-height-base;
+    border: @border-base;
+    &.form-sm{
+      padding: @padding-small;
+      height:@input-height-small;
+      font-size: @font-size-small;
+    }
+    &.form-lg {
+      padding: @padding-large;
+      height:@input-height-large;
+      font-size: @font-size-large;
+    }
+  }
+
+  > .input + .button,
+  > .input + .button-split,
+  > .input-inset-icons  + .button {
+    float:left;
+    .border-left-radius(0);
+  }
+  > .button-split{
+    > .button{
+      .border-left-radius(0);
+    }
+  }
+}
+
+
+
+//
+// input-inset-icons
+// =====================
+.input-inset-icons {
+  position: relative;
+  > .prepend,
+  > .append {
+    position : absolute;
+    top: 0;
+    display : block;
+    // vertical-align: middle;
+    height : @input-height-base;
+    border : 0;
+    background-color: transparent;
+    
+    // dropdown
+    .button{
+      padding: @padding-base;
+      background-color: transparent;
+      color:@gray-light;
+      &:hover{
+        color:@link-hover-color;
+      }
+      > .drop{
+        margin-left: 0;
+      }
+    }
+
+    // アイコンのみの場合
+    > .qcon{
+      padding: (@padding-base-vertical * 1.5) @padding-base-horizontal;
+      vertical-align: middle;
+      color:@gray-light;
+    }
+  }
+
+  > .prepend{
+    left: 0;
+    ~ .input {
+      padding-left: ( @padding-base-horizontal * 3 );
+    }
+  }
+
+  > .append {
+    right: 0;
+    ~ .input {
+      padding-right: ( @padding-base-horizontal * 3 );
+    }
+  }
+
+  &.form-sm{
+    > .prepend,
+    > .append {
+      .button,
+      > .qcon {
+        height:@input-height-small;
+        font-size: @font-size-small;
+        vertical-align: middle;
+      }
+      > .qcon,
+      > .qcon{
+        padding: (@padding-small-vertical * 1.7) @padding-small-horizontal;
+      }
+    }
+    > .prepend{
+      ~ .input {
+        padding-left: (@padding-small-horizontal * 3);
+      }
+    }
+    > .append {
+      ~ .input {
+        padding-right: (@padding-small-horizontal * 3);
+      }
+    }
+  }
+
+  &.form-lg{
+    > .prepend,
+    > .append {
+      .button,
+      > .qcon {
+        height:@input-height-large;
+        font-size: @font-size-large;
+        vertical-align: middle;
+      }
+      > .qcon,
+      > .qcon{
+        padding: (@padding-large-vertical * 1.3) @padding-large-horizontal;
+      }
+    }
+    > .prepend{
+      ~ .input {
+        padding-left: (@padding-large-horizontal * 3);
+      }
+    }
+    > .append {
+      ~ .input {
+        padding-right: (@padding-large-horizontal * 3);
+      }
+    }
+  }
+
+}
+

@@ -1,0 +1,33 @@
+
+@media (min-width: @row-breakpoint) {
+
+  .row {
+    width: 100%;
+    line-height:@line-height-base;
+    .clearfix();
+    .col {
+      display: block;
+      float:left;
+    }
+      
+  }
+  
+  .row.padding [class^="col-"] {
+    padding: @row-gutter-padding-base;
+  }
+  .row.padding-sm [class^="col-"] {
+    padding: @row-gutter-padding-sm;
+  }
+  .row.padding-xs [class^="col-"] {
+    padding: @row-gutter-padding-xs;
+  }
+  .row.padding-form [class^="col-"] {
+    padding-right: @row-gutter-padding-form;
+    &:last-child{
+      padding-right: 0;
+    }
+  }
+    
+  .row-generate(@row-number);
+
+}
