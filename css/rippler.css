@@ -8,6 +8,7 @@
 
 .rippler {
   position: relative;
+  display: inline-block;
   overflow: hidden;
   cursor: pointer;
   -webkit-user-select: none;
