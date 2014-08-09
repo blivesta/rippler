@@ -21,10 +21,9 @@
     clean: {
       files: [
         '<%= pkg.dist %>',
-        '<%= pkg.docs %>/js/<%= pkg.name %>.js',
-        '<%= pkg.docs %>/js/<%= pkg.name %>.min.js',
-        '<%= pkg.docs %>/css/<%= pkg.name %>.css',
-        '<%= pkg.docs %>/css/<%= pkg.name %>.min.css',
+        '<%= pkg.docs %>/js/*.js',
+        '<%= pkg.docs %>/css/*.css',
+        '<%= pkg.docs %>/svg/*.svg',
         '<%= pkg.public %>'
       ]
     },
@@ -205,14 +204,22 @@
     copy: {
       dist: {
         expand: true,
-        cwd: './<%= pkg.docs %>',
+        cwd: '<%= pkg.docs %>',
         src: [
-          'js/<%= pkg.name %>.js',
-          'js/<%= pkg.name %>.min.js',
+          'js/*.js',
           'css/*.css',
-          'css/*.map'
+          'css/*.map',
+          'svg/*.svg'
         ],
-        dest: './<%= pkg.dist %>'
+        dest: '<%= pkg.dist %>'
+      },
+      svg: {
+        expand: true,
+        cwd: '<%= pkg.source %>',
+        src: [
+          'svg/*.svg'
+        ],
+        dest: '<%= pkg.docs %>'
       }
     },
     // ====================================================
@@ -321,6 +328,16 @@
           'jekyll',
           'notify'
         ]
+      },
+      svg: {
+        files: [
+          '<%= pkg.source %>/svg/*.svg'
+        ],
+        tasks: [
+          'build-svg',
+          'jekyll',
+          'notify'
+        ]
       }
     },
     // ====================================================
@@ -371,6 +388,11 @@
   ]);
   
   // ====================================================
+  grunt.registerTask('build-svg', [
+    'copy:svg'
+  ]);
+  
+  // ====================================================
   grunt.registerTask('build-html', [
     'jekyll'
   ]);
@@ -379,19 +401,19 @@
   grunt.registerTask('test', [
     'jshint:source',
     'csslint',
-    //'validation'
   ]);
 
   // ====================================================
   grunt.registerTask('b', [
     'clean',
     'bower',
+    'build-svg',
     'build-less',
     'build-docsLess',
     'build-js',
     'build-html',
     'test',
-    'copy'
+    'copy:dist'
   ]);
   
   // ====================================================

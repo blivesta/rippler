@@ -16,7 +16,8 @@
     "dist/css/rippler.css",
     "dist/css/rippler.min.css",
     "dist/js/rippler.js",
-    "dist/js/rippler.min.js"
+    "dist/js/rippler.min.js",
+    "dist/svg/*.svg"
   ],
   "ignore": [
     ".*",

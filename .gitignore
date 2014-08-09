@@ -1,12 +1,11 @@
 node_modules
 bower_components
-validation-*.json
 _gh_pages
 docs/vendor/bootstrap
 docs/vendor/drawer
 docs/vendor/jquery
 docs/vendor/cooker/less/*
 docs/vendor/cooker/js/*
-docs/images/circle.svg
+docs/svg
 docs/css
 docs/js
