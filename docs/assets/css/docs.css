@@ -449,8 +449,11 @@ h4 {
   margin-bottom: 0;
 }
 .example-elm {
-  width: 320px;
-  height: 320px;
+  display: block;
+  width: 280px;
+  height: 280px;
+  margin-right: auto;
+  margin-left: auto;
   background-color: #556b7f;
 }
 .example-elm-circle {

@@ -42,7 +42,9 @@
   <script type="text/javascript">
   $(document).ready(function() {
     
-      $(".rippler").rippler();
+      $(".rippler").rippler({
+        // addElement:"svg"
+      });
 
       $('a[href^=#]').on('click', function(){
         return false;
