@@ -8,3 +8,5 @@ docs/vendor/jquery
 docs/vendor/cooker/less/*
 docs/vendor/cooker/js/*
 docs/images/circle.svg
+docs/css
+docs/js
