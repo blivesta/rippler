@@ -1,6 +1,5 @@
 .rippler {
   position:relative;
-  display: inline-block;
   overflow:hidden;
   user-select:none;
   cursor: pointer;
@@ -13,15 +12,20 @@
   }
 }
 
+// button
+.rippler-button {
+  display: inline-block;
+}
+
+// image
+.rippler-img {
+  display:block;
+}
+
 .rippler-circle-musk {
   border-radius:50%;
   -webkit-mask: url(../svg/circle.svg) no-repeat;
-  -webkit-mask-size:100% 100%;
-}
-
-// image wrapper
-.rippler-img {
-  display:block;
+  -webkit-mask-size:100%;
 }
 
 .rippler-effect {
@@ -29,6 +33,7 @@
   opacity:.2;
 }
 
+// 
 // if addElement = 'svg'
 .rippler-svg {
   .rippler-default & { fill:#fff; }
@@ -61,5 +66,3 @@
   .rippler-bs-warning & { background-color:#ed9c28; }
   .rippler-bs-danger &  { background-color:#d2322d; }
 }
-
-
