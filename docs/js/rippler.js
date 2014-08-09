@@ -1,5 +1,5 @@
 /*!
- * rippler v0.0.1
+ * rippler v0.0.2
  * http://blivesta.github.io/rippler/
  * Licensed under MIT
  * Author : blivesta

@@ -1,7 +1,7 @@
 {
   "name": "rippler",
-  "description": "a simple and easy jQuery plugin used to add page transition on css animations.",
-  "version": "0.0.1",
+  "description": "Effect that spreads like a wave in touch or click.",
+  "version": "0.0.2",
   "keywords": [
     "css3",
     "js",

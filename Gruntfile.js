@@ -23,6 +23,8 @@
         '<%= pkg.dist %>',
         '<%= pkg.docs %>/js/<%= pkg.name %>.js',
         '<%= pkg.docs %>/js/<%= pkg.name %>.min.js',
+        '<%= pkg.docs %>/css/<%= pkg.name %>.css',
+        '<%= pkg.docs %>/css/<%= pkg.name %>.min.css',
         '<%= pkg.public %>'
       ]
     },
@@ -45,7 +47,7 @@
           cleancss: true
         },
         files: {
-          '<%= pkg.docs %>/css/<%= pkg.name %>.min.css': '<%= pkg.source %>/css/<%= pkg.name %>.css'
+          '<%= pkg.docs %>/css/<%= pkg.name %>.min.css': '<%= pkg.docs %>/css/<%= pkg.name %>.css'
         }
       },
       docs: {
@@ -125,7 +127,7 @@
         src: '<%= pkg.docs %>/css/*.css'
       },
       docs: {
-        src: '<%= pkg.docs %>/css/*.css'
+        src: '<%= pkg.assets %>/css/*.css'
       }
     },
     // ====================================================
