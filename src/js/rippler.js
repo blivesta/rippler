@@ -7,9 +7,8 @@
         effectClass      :  'rippler-effect'
         ,effectSize      :  16      // Default size (width & height)
         ,addElement      :  'div'   // e.g. 'svg' (feature)
-        ,duration        :  400
+        ,duration        :  600
       }, options);
-
       return this.each(function(){
         var _this = this;
         var $this = $(this);
@@ -21,25 +20,39 @@
           $this.data(namespace, {
             options: options
           });
-
-          $this.on("mousedown." + namespace + " touchstrat." + namespace, function(event) {
-            var $self = $(this);  
-            methods.effectAdd.call(_this, $self, event);
-          });
-          $this.on("mouseup." + namespace + " touchend." + namespace, function(event) {
-            var $self = $(this);  
-            methods.effectStart.call(_this, $self, event);
-          });
+          
+          if (typeof document.ontouchstart != "undefined") {
+            $this.on("touchstart."+ namespace, function(event) {
+              var $self = $(this);
+              methods.elementAdd.call(_this, $self, event);
+            });
+            $this.on("touchend." + namespace, function(event) {
+              var $self = $(this);
+              methods.effect.call(_this, $self, event);
+            });
+          }else{
+            $this.on("mousedown."+ namespace, function(event) {
+              var $self = $(this);
+              methods.elementAdd.call(_this, $self, event);
+            });
+            $this.on("mouseup."+ namespace, function(event) {
+              var $self = $(this);
+              methods.effect.call(_this, $self, event);
+            });
+            
+          }
+          
         }
       }); // end each
     },
 
-    template: function(){
+    template: function(options){
       var $this = $(this);
-      var options = $this.data(namespace).options;
+      options = $this.data(namespace).options;
       var element;
       var svgElementClass = 'rippler-svg';
       var divElementClass = 'rippler-div';
+
       var circle = '<circle cx="'+options.effectSize+'" cy="'+options.effectSize+'" r="'+(options.effectSize / 2)+'">';
       var svgElement = '<svg class="'+options.effectClass+' '+svgElementClass+'" xmlns="http://www.w3.org/2000/svg" viewBox="'+(options.effectSize / 2)+' '+(options.effectSize / 2)+' '+options.effectSize+' '+options.effectSize+'">'+circle+'</svg>';
 
@@ -52,83 +65,97 @@
       }
       return element;  
     },
-
-    maxWidth : function(){
-      var $this = $(this);
-      var thisW = $this.outerWidth();
-      var thisH = $this.outerHeight();
-      var getDiagonal = function(x, y) {
-        if (x > 0 && y > 0) return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
-        else return false;
-      }
-      return getDiagonal(thisW, thisH) * 2;
-    },
-
-    effectAdd: function($self, event){
+    
+    elementAdd: function($self, event, options){
       var _this = this;
       var $this = $(this);
-      var options = $this.data(namespace).options;
-
-      $this.append(methods.template.call(_this));
-
-      var $effect = $('.' + options.effectClass);
-      var selfOffset = $self.offset();
-      var mx = event.pageX;
-      var my = event.pageY;
-
+      options = $this.data(namespace).options;
+      $self.append(methods.template.call(_this));
+      var $effect = $self.find('.' + options.effectClass);
+      var selfOffset = $self.offset();      
+      var eventX = methods.targetX.call(_this,event);
+      var eventY = methods.targetY.call(_this,event);
+            
       $effect.css({
         'width':options.effectSize
         ,'height':options.effectSize
-        ,'left': ( mx - selfOffset.left ) - ( options.effectSize / 2 )
-        ,'top': ( my - selfOffset.top ) - ( options.effectSize / 2 )
-        ,'transition':'all '+ ( options.duration / 1000 ) +'s ease-out'
+        ,'left': ( eventX - selfOffset.left ) - ( options.effectSize / 2 )
+        ,'top': ( eventY - selfOffset.top ) - ( options.effectSize / 2 )
       });
       return _this;
     },
 
-    effectStart : function($self, event){
+    effect : function($self, event, options){
       var _this = this;
       var $this = $(this);
-      var options = $this.data(namespace).options;
-
+      options = $this.data(namespace).options;
       var $effect = $('.' + options.effectClass);
       var selfOffset = $self.offset();
-      var mx = event.pageX;
-      var my = event.pageY;
+      var thisW = $this.outerWidth();
+      var thisH = $this.outerHeight();
+      var effectMaxWidth = methods.diagonal(thisW, thisH) * 2;      
+      var eventX = methods.targetX.call(_this,event);
+      var eventY = methods.targetY.call(_this,event);
 
-      var effectMaxWidth = methods.maxWidth.call(_this);
-
-      var rippleScale = function(){
-        $effect.css({
-          'width':effectMaxWidth
-          ,'height':effectMaxWidth
-          ,'left': ( mx - selfOffset.left ) - ( effectMaxWidth / 2 )
-          ,'top': ( my - selfOffset.top ) - ( effectMaxWidth / 2 )
-        });
-      }
-
-      var rippleOut = function(){
-        $effect.css({
+      $effect.css({
+        'width':effectMaxWidth
+        ,'height':effectMaxWidth
+        ,'left': ( eventX - selfOffset.left ) - ( effectMaxWidth / 2 )
+        ,'top': ( eventY - selfOffset.top ) - ( effectMaxWidth / 2 )
+        ,'transition':'all '+ ( options.duration / 1000 ) +'s ease-out'
+      });
+      return methods.elementRemove.call(_this);
+    },
+    
+    elementRemove: function(options){
+      var _this = this;
+      var $this = $(this);
+      options = $this.data(namespace).options;
+      var $effect = $('.' + options.effectClass);
+      setTimeout(function(){ 
+        $effect.css({ 
           'opacity': 0
+          ,'transition':'all '+ ( options.duration / 1000 ) +'s ease-out'
         });
         setTimeout(function(){ 
           $effect.remove();
-        }, options.duration);        
+        }, options.duration * 1.5);        
+      }, options.duration);
+      return _this;
+    },
+
+    targetX: function(event){
+      var e = event.originalEvent;
+      var eventX;
+      if (typeof document.ontouchstart != "undefined") {
+        eventX = e.changedTouches[0].pageX;
+      }else{
+        eventX = e.pageX;
       }
+      return eventX;
+    },
+    
+    targetY: function(event){
+      var e = event.originalEvent;
+      var eventY;
+      if (typeof document.ontouchstart != "undefined") {
+        eventY = e.changedTouches[0].pageY;
+      }else{
+        eventY = e.pageY;
+      }
+      return eventY;
+    },
 
-      rippleScale();
-      setTimeout(rippleOut, options.duration * 1.5);  //*1.5は止めておく時間 
-
-      // return _this;
+    diagonal: function(x, y){
+      if (x > 0 && y > 0) return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+      else return false;
     },
     
     destroy: function(){
       return this.each(function(){
         var $this = $(this);
         $(window).unbind('.'+namespace);
-        $this
-          .removeClass(namespace)
-          .removeData(namespace);
+        $this.removeData(namespace);
       });      
     }
     
