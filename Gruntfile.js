@@ -34,7 +34,7 @@
           sourceMap: true,
           outputSourceFiles: true,
           sourceMapURL: ['<%= pkg.name %>.css.map'],
-          sourceMapFilename: '<%= pkg.source %>/css/<%= pkg.name %>.css.map'
+          sourceMapFilename: '<%= pkg.docs %>/css/<%= pkg.name %>.css.map'
         },
         files: {
           '<%= pkg.docs %>/css/<%= pkg.name %>.css': '<%= pkg.source %>/less/<%= pkg.name %>.less'
@@ -106,7 +106,7 @@
         expand: true,
         cwd: '<%= pkg.docs %>/css/',
         src: ['*.css', '!*.min.css'],
-        dest: '<%= pkg.source %>/css/'
+        dest: '<%= pkg.docs %>/css/'
       },
       docs: {
         expand: true,
