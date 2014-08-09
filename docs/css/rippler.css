@@ -166,30 +166,21 @@
  * http://blivesta.com/
  */
 
-/*!
- * rippler v0.0.1
- * http://blivesta.github.io/rippler/
- * Licensed under MIT
- * Author : blivesta
- * http://blivesta.com/
- */
-
-/*!
- * rippler v0.0.1
- * http://blivesta.github.io/rippler/
- * Licensed under MIT
- * Author : blivesta
- * http://blivesta.com/
- */
-
 .rippler {
   position: relative;
   overflow: hidden;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.rippler:focus,
+.rippler:active {
+  outline: none;
+}
+.rippler::-moz-focus-inner {
+  border: 0;
 }
 .rippler-img {
   display: block;
