@@ -448,6 +448,14 @@ h4 {
 .row.padding .col .highlight {
   margin-bottom: 0;
 }
+.example-elm {
+  width: 320px;
+  height: 320px;
+  background-color: #556b7f;
+}
+.example-elm-circle {
+  background-color: #cbd5df;
+}
 @media (min-width: 480px) {
   .site-masthead .button {
     padding: 16px 32px;
@@ -483,9 +491,6 @@ h4 {
   margin-right: auto;
   margin-bottom: 40px;
   margin-left: auto;
-}
-.site-home .page-different-animation .label-class {
-  margin-bottom: 10px;
 }
 @media (min-width: 480px) {
   .site-home .site-masthead {
