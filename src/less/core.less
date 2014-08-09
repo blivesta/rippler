@@ -3,18 +3,19 @@
   overflow:hidden;
   user-select:none;
   cursor: pointer;
-  // display:inline-block;
+  &:focus,
+  &:active {
+    outline:none;
+  }
+  &::-moz-focus-inner{
+    border: 0;
+  }
 }
 
 // image wrapper
 .rippler-img {
-  // display:inline-block;
   display:block;
 }
-
-// .rippler-circle-musk {
-//   -webkit-mask-box-image: url(../images/circle.svg);
-// }
 
 .rippler-effect {
   position:absolute;
