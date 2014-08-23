@@ -153,15 +153,15 @@
           beautify: true
         },
         files :  { 
-          '<%= pkg.docs %>/js/<%= pkg.name %>.js' : [
+          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js' : [
             '<%= pkg.source %>/js/<%= pkg.name %>.js'
           ]
         } 
       },
       minify:{
         files :  { 
-          '<%= pkg.docs %>/js/<%= pkg.name %>.min.js' : [
-            '<%= pkg.docs %>/js/<%= pkg.name %>.js' 
+          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.min.js' : [
+            '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js' 
           ]
         } 
       }
@@ -176,8 +176,8 @@
       },
       source: {
         src: [
-          '<%= pkg.docs %>/js/<%= pkg.name %>.js',
-          '<%= pkg.docs %>/js/<%= pkg.name %>.min.js'
+          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js',
+          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.min.js'
         ]
       }
     },
