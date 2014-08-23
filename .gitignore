@@ -2,10 +2,7 @@ node_modules
 bower_components
 _gh_pages
 docs/vendor/bootstrap
-docs/vendor/drawer
-docs/vendor/jquery
-docs/vendor/cooker/less/*
-docs/vendor/cooker/js/*
+docs/vendor
 docs/svg
 docs/css
 docs/js
