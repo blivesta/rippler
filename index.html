@@ -5,9 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   
+  <meta name="description" content="Effect that spreads like a wave in touch or click.">
+  
   <title>
     
-      Effect that spreads like a wave in touch or click. &middot; Rippler
+      Rippler &middot; Effect that spreads like a wave in touch or click.
     
   </title>
   
@@ -15,15 +17,16 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./assets/ico/touch-icon-144.png">
   <link rel="shortcut icon" href="./assets/ico/favicon.ico">
 
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:800,400,300,600' rel='stylesheet' type='text/css'>
   <!-- Vendor css -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./vendor/cooker/css/cooker.css">
-
-  <!-- rippler docs css -->
+  
+  <!-- animsition docs css -->
   <link rel="stylesheet" href="./assets/css/docs.css">
 
-  <!-- rippler css -->
+  <!-- animsition css -->
   <link rel="stylesheet" href="./css/rippler.css">
 
   <!-- Google analytics -->
@@ -32,7 +35,7 @@
   <!-- Vendor js -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-  <!-- rippler js -->
+  <!-- animsition js -->
   <script src="./js/jquery.rippler.js"></script>
 
   <script type="text/javascript">
@@ -45,51 +48,60 @@
       $('a[href^=#]').on('click', function(){
         return false;
       });
-
+      
   }); 
 
   </script>
   
 </head>
 <body class=" site-home">
-  <div class="site-wrapper">
-    <header class="site-header navbar navbar-default navbar-static-top" id="top" role="banner">
+  <div class="site-wrapper animsition" data-animsition-in="" data-animsition-out="">
+    <a href="https://github.com/blivesta/rippler" style="z-index:9999; "><img style="position: absolute; top: 0; right: 0; border: 0; z-index:9999; " src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+
+<header class="site-header navbar navbar-default navbar-static-top" id="top" role="banner">
   <div class="site-header-inner container">
     <div class="navbar-header">
-       <a class="site-header-brand navbar-brand rippler rippler-inverse" href="./">Rippler</a>
+       <a class="site-header-brand navbar-brand animsition-link" href="./">Rippler</a>
     </div>
-    <nav class="site-navbar-coll hidden-xs" role="navigation">
-      <ul class="navs navbar-nav navbar-right">
-        <li class=""><a class="rippler rippler-inverse" href="https://github.com/blivesta/rippler">GitHub project</a></li>
-      </ul>
-    </nav>
   </div>
 </header>
 
-    <main class="site-masthead " role="main">
+    
+    <main class="site-masthead" role="main">
   <div class="container">
     <h1>Rippler</h1>
     <p class="lead">Effect that spreads like a wave in touch or click.</p>
-    <p><a href="https://github.com/blivesta/rippler" class="rippler rippler-inverse button button-border button-lg">Download on GitHub</a></p>
+    <p><a href="https://github.com/blivesta/rippler" class="button button-border button-lg">Download on GitHub</a></p>
     <ul class="site-social list-inline">
-	<li>
+	<li class="btn-gh">
 	  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=rippler&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
 	</li>
-	<li>
-	  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=blivesta&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
+	<li class="btn-tw">
+	  <a href="https://twitter.com/share" class="twitter-share-button" data-text="Rippler : Effect that spreads like a wave in touch or click." data-url="http://git.blivesta.com/rippler" data-related="blivesta" data-count="1" data-hashtags="jquery,css3,svg">Tweet</a>
+	  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		</script>
 	</li>
-	<li>
-	  <a href="https://twitter.com/share" class="twitter-share-button" data-text="Rippler : Effect that spreads like a wave in touch or click." data-url="http://git.blivesta.com/rippler" data-related="blivesta" data-count="1" data-hashtags="">Tweet</a>
+	<li class="btn-gg">
+		<div class="g-plusone" data-size="medium" data-href="http://git.blivesta.com/rippler"></div>
+		<script type="text/javascript">
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/platform.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
 	</li>
-  
-
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
 </ul>       
   
-    <p>Currently v0.1.1  ･  Authtor : <a href="https://twitter.com/blivesta/">@blivesta</a>
+    <p>Currently v0.1.1  ･  Authtor :&nbsp; 
+      <span class="icon-blivesta icon-sm"></span>&nbsp;
+      <a href="http://blivesta.com/" target="_blank">blivesta</a>
     <br>
     Licensed under the MIT.</p>
+    <div class="site-adpacks">
+  <script async type="text/javascript" src="//cdn.adpacks.com/adpacks.js?zoneid=1386&serve=C6SI42Y&placement=blivesta" id="_adpacks_js"></script>
+</div>
+
   </div><!-- /.container -->
 </main>
 
@@ -251,6 +263,21 @@
      </div><!-- / .site-section -->
 
     <div class="site-section">
+      <h2 class="site-section-title">Browser support</h2>
+      <p class="site-icon-mark"><span class="oi oi-browser"></span></p>
+      <p class="lead">Requires a browser that CSS3 is supported.</p>
+      <div class="site-section-body">
+        <ul class="list-inline">
+          <li><span class="label-class">IE10+</span></li>
+          <li><span class="label-class">Safari</span></li>
+          <li><span class="label-class">Chrome</span></li>
+          <li><span class="label-class">Firefox</span></li>
+          <li><span class="label-class">Opera</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-section">
       <h2 class="site-section-title">Installation</h2>
       <p class="site-icon-mark"><span class="oi oi-code"></span></p>
       <p class="lead"></p>
@@ -294,61 +321,51 @@
       </div>
     </div>
 
-    <div class="site-section">
-      <h2 class="site-section-title">Browser support</h2>
-      <p class="site-icon-mark"><span class="oi oi-browser"></span></p>
-      <p class="lead">Requires a browser that CSS3 is supported.</p>
-      <div class="site-section-body">
-        <ul class="list-inline">
-          <li><span class="label-class">IE10+</span></li>
-          <li><span class="label-class">Safari</span></li>
-          <li><span class="label-class">Chrome</span></li>
-          <li><span class="label-class">Firefox</span></li>
-          <li><span class="label-class">Opera</span></li>
-        </ul>
-      </div>
-    </div>
-
   </div><!-- /.container -->
 </div><!-- /.site-body -->
   
 
     <footer class="site-footer">
   <div class="site-footer-inner container">
-    <ul class="site-social list-inline">
-	<li>
-	  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=rippler&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
-	</li>
-	<li>
+    
+    <ul class="site-social-folow list-inline">
+	<li style="width:126px">
 	  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=blivesta&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
 	</li>
 	<li>
-	  <a href="https://twitter.com/share" class="twitter-share-button" data-text="Rippler : Effect that spreads like a wave in touch or click." data-url="http://git.blivesta.com/rippler" data-related="blivesta" data-count="1" data-hashtags="">Tweet</a>
+		<a href="https://twitter.com/blivesta" class="twitter-follow-button" data-show-count="false">Follow @blivesta</a>
+	  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		</script>		
 	</li>
-  
-
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 </ul>       
 
+    
+    <hr>
+    
     <ul class="list-inline">
       <li>Currently v0.1.1</li>
       <li>·</li>
       <li>Code licensed under the MIT.</li>
       <li>·</li>
-      <li>Author <a href="http://blivesta.com">blivesta</a></li>
+      <li>
+        Author&nbsp;<span class="icon-blivesta icon-sm icon-circle"></span>&nbsp;
+        <a href="http://blivesta.com">blivesta</a>
+      </li>
     </ul>
     
     <ul class="list-inline">
       <li>Other projects</li>
       <li>·</li>
-      <li><a href="../animsition">Animsition</a></li>
+      <li><a href="/animsition">Animsition</a></li>
       <li>·</li>
-      <li><a href="../drawer">Drawer</a></li>
+      <li><a href="/drawer">Drawer</a></li>
       <li>·</li>
-      <li><a href="../oblurlay">Oblurlay</a></li>
+      <li><a href="/rippler">Rippler</a></li>
       <li>·</li>
-      <li><a href="../chaffle">Chaffle</a></li>
+      <li><a href="/oblurlay">Oblurlay</a></li>
+      <li>·</li>
+      <li><a href="/chaffle">Chaffle</a></li>
     </ul>
   </div>
 </footer>
