@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  {% if page.class == 'site-home' %}
-  <meta name="description" content="{{ page.title }}">
+  {% if page.layout == 'home' %}
+  <meta name="description" content="{{ site.discription }}">
   {% endif %}
   <title>
-    {% if page.title == site.title %}
-      {{ page.title }}
+    {% if page.layout == 'home' %}
+      {{ site.title }} &middot; {{ site.discription }}
     {% else %}
-      {{ page.title }} &middot; {{ site.title }}
+      {{ page.title }} &middot; {{ site.title }} &middot; {{ site.discription }}
     {% endif %}
   </title>
   
@@ -19,16 +19,17 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ page.base_url }}assets/ico/touch-icon-144.png">
   <link rel="shortcut icon" href="{{ page.base_url }}assets/ico/favicon.ico">
 
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:800,400,300,600' rel='stylesheet' type='text/css'>
   <!-- Vendor css -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ page.base_url }}vendor/cooker/css/cooker.css">
-
-  <!-- rippler docs css -->
+  
+  <!-- animsition docs css -->
   <link rel="stylesheet" href="{{ page.base_url }}assets/css/docs.css">
 
-  <!-- rippler css -->
-  <link rel="stylesheet" href="{{ page.base_url }}css/rippler.css">
+  <!-- animsition css -->
+  <link rel="stylesheet" href="{{ page.base_url }}css/{{ site.repo }}.css">
 
   <!-- Google analytics -->
   <script src="//git.blivesta.com/js/ga.js"></script>
@@ -36,8 +37,8 @@
   <!-- Vendor js -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-  <!-- rippler js -->
-  <script src="{{ page.base_url }}js/jquery.rippler.js"></script>
+  <!-- animsition js -->
+  <script src="{{ page.base_url }}js/jquery.{{ site.repo }}.js"></script>
 
   <script type="text/javascript">
   $(document).ready(function() {
@@ -49,7 +50,7 @@
       $('a[href^=#]').on('click', function(){
         return false;
       });
-
+      
   }); 
 
   </script>

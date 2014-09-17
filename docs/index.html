@@ -4,15 +4,18 @@ title: Effect that spreads like a wave in touch or click.
 class:
 base_url: "./"
 ---
-<main class="site-masthead " role="main">
+<main class="site-masthead" role="main">
   <div class="container">
     <h1>{{ site.title }}</h1>
     <p class="lead">{{ page.title }}</p>
-    <p><a href="{{ site.repo_url }}" class="rippler rippler-inverse button button-border button-lg">Download on GitHub</a></p>
-    {% include social-buttons.html %}  
-    <p>Currently v{{ site.current_version }}  ･  Authtor : <a href="https://twitter.com/blivesta/">@blivesta</a>
+    <p><a href="{{ site.repo_url }}" class="button button-border button-lg">Download on GitHub</a></p>
+    {% include social-link.html %}  
+    <p>Currently v{{ site.current_version }}  ･  Authtor :&nbsp; 
+      <span class="icon-blivesta icon-sm"></span>&nbsp;
+      <a href="http://blivesta.com/" target="_blank">blivesta</a>
     <br>
     Licensed under the MIT.</p>
+    {% include adpacks.html %}
   </div><!-- /.container -->
 </main>
 
@@ -180,17 +183,6 @@ base_url: "./"
      </div><!-- / .site-section -->
 
     <div class="site-section">
-      <h2 class="site-section-title">Installation</h2>
-      <p class="site-icon-mark"><span class="oi oi-code"></span></p>
-      <p class="lead"></p>
-      <div class="site-section-body">
-          <p><a href="{{ site.repo_url }}" class="button button-border-primary button-lg">Download on GitHub</a></p>
-
-        {% include example-setup.html %}
-      </div>
-    </div>
-
-    <div class="site-section">
       <h2 class="site-section-title">Browser support</h2>
       <p class="site-icon-mark"><span class="oi oi-browser"></span></p>
       <p class="lead">Requires a browser that CSS3 is supported.</p>
@@ -202,6 +194,17 @@ base_url: "./"
           <li><span class="label-class">Firefox</span></li>
           <li><span class="label-class">Opera</span></li>
         </ul>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <h2 class="site-section-title">Installation</h2>
+      <p class="site-icon-mark"><span class="oi oi-code"></span></p>
+      <p class="lead"></p>
+      <div class="site-section-body">
+          <p><a href="{{ site.repo_url }}" class="button button-border-primary button-lg">Download on GitHub</a></p>
+
+        {% include example-setup.html %}
       </div>
     </div>
 
