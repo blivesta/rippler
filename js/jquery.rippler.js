@@ -78,7 +78,6 @@
         left: eventX - selfOffset.left - options.effectSize / 2,
         top: eventY - selfOffset.top - options.effectSize / 2
       });
-      return _this;
     },
     effect: function($self, event, options) {
       var _this = this;
@@ -91,30 +90,29 @@
       var effectMaxWidth = methods.diagonal(thisW, thisH) * 2;
       var eventX = methods.targetX.call(_this, event);
       var eventY = methods.targetY.call(_this, event);
+      var url = $self.attr("href");
       $effect.css({
         width: effectMaxWidth,
         height: effectMaxWidth,
         left: eventX - selfOffset.left - effectMaxWidth / 2,
         top: eventY - selfOffset.top - effectMaxWidth / 2,
         transition: "all " + options.duration / 1e3 + "s ease-out"
+      }).transitionEnd(function() {
+        if (url) {
+          location.href = url;
+        }
+        return methods.elementRemove.call(_this);
       });
-      return methods.elementRemove.call(_this);
     },
     elementRemove: function(options) {
-      var _this = this;
       var $this = $(this);
       options = $this.data(namespace).options;
       var $effect = $("." + options.effectClass);
-      setTimeout(function() {
-        $effect.css({
-          opacity: 0,
-          transition: "all " + options.duration / 1e3 + "s ease-out"
-        });
-        setTimeout(function() {
-          $effect.remove();
-        }, options.duration * 1.5);
-      }, options.duration);
-      return _this;
+      $effect.css({
+        opacity: 0
+      }).transitionEnd(function() {
+        $effect.remove();
+      });
     },
     targetX: function(event) {
       var e = event.originalEvent;
@@ -146,6 +144,18 @@
         $this.removeData(namespace);
       });
     }
+  };
+  $.fn.transitionEnd = function(callback) {
+    var $this = $(this);
+    var props = "transitionend webkitTransitionEnd mozTransitionEnd oTransitionEnd MSTransitionEnd";
+    if ($this.length > 0) {
+      $this.bind(props, function(event) {
+        if ($.isFunction(callback)) {
+          callback.call($this, event);
+        }
+      });
+    }
+    return $this;
   };
   $.fn.rippler = function(method) {
     if (methods[method]) {
