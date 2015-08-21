@@ -15,6 +15,7 @@ http://blivesta.github.io/rippler
 
 for firefox and safari is rippler using 0 for default effectSize!
 
+```
 $(document).ready(function() {
   $(".rippler").rippler({
     effectClass      :  'rippler-effect'
@@ -23,6 +24,7 @@ $(document).ready(function() {
     ,duration        :  400
   });
 });
+```
 
 ##License
 MIT license.
