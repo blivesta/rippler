@@ -13,7 +13,7 @@ http://blivesta.github.io/rippler
 
 ##Sidenote 
 
-for firefox and safari is rippler using 0 for default effectSize!
+Due to click errors on firefox and safari is rippler using 0 for default effectSize!
 
 ```
 $(document).ready(function() {
