@@ -24,6 +24,7 @@
           if (typeof document.ontouchstart != "undefined") {
             $this.on("touchstart."+ namespace, function(event) {
               var $self = $(this);
+              event.preventDefault();
               methods.elementAdd.call(_this, $self, event);
             });
             $this.on("touchend." + namespace, function(event) {
@@ -33,6 +34,7 @@
           }else{
             $this.on("mousedown."+ namespace, function(event) {
               var $self = $(this);
+              event.preventDefault();
               methods.elementAdd.call(_this, $self, event);
             });
             $this.on("mouseup."+ namespace, function(event) {
@@ -117,7 +119,12 @@
           'opacity': 0
           ,'transition':'all '+ ( options.duration / 1000 ) +'s ease-out'
         });
-        setTimeout(function(){ 
+
+        if(typeof _this['href'] !== 'undefined'){
+          window.location.href = _this.href;
+        }
+
+        setTimeout(function(){
           $effect.remove();
         }, options.duration * 1.5);        
       }, options.duration);
