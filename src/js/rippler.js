@@ -2,10 +2,10 @@
   "use strict";
   var namespace = 'rippler';
   var methods = {
-    init: function(options){      
+    init: function(options){
       options = $.extend({
         effectClass      :  'rippler-effect'
-        ,effectSize      :  16      // Default size (width & height)
+        ,effectSize      :  0      // Default size (width & height)
         ,addElement      :  'div'   // e.g. 'svg' (feature)
         ,duration        :  600
       }, options);
@@ -14,13 +14,13 @@
         var $this = $(this);
         var data = $this.data(namespace);
 
-        if (!data) { 
+        if (!data) {
           options = $.extend({}, options);
 
           $this.data(namespace, {
             options: options
           });
-          
+
           if (typeof document.ontouchstart != "undefined") {
             $this.on("touchstart."+ namespace, function(event) {
               var $self = $(this);
@@ -39,9 +39,9 @@
               var $self = $(this);
               methods.effect.call(_this, $self, event);
             });
-            
+
           }
-          
+
         }
       }); // end each
     },
@@ -63,19 +63,19 @@
       } else {
         element = divElement;
       }
-      return element;  
+      return element;
     },
-    
+
     elementAdd: function($self, event, options){
       var _this = this;
       var $this = $(this);
       options = $this.data(namespace).options;
       $self.append(methods.template.call(_this));
       var $effect = $self.find('.' + options.effectClass);
-      var selfOffset = $self.offset();      
+      var selfOffset = $self.offset();
       var eventX = methods.targetX.call(_this,event);
       var eventY = methods.targetY.call(_this,event);
-            
+
       $effect.css({
         'width':options.effectSize
         ,'height':options.effectSize
@@ -93,7 +93,7 @@
       var selfOffset = $self.offset();
       var thisW = $this.outerWidth();
       var thisH = $this.outerHeight();
-      var effectMaxWidth = methods.diagonal(thisW, thisH) * 2;      
+      var effectMaxWidth = methods.diagonal(thisW, thisH) * 2;
       var eventX = methods.targetX.call(_this,event);
       var eventY = methods.targetY.call(_this,event);
 
@@ -106,20 +106,20 @@
       });
       return methods.elementRemove.call(_this);
     },
-    
+
     elementRemove: function(options){
       var _this = this;
       var $this = $(this);
       options = $this.data(namespace).options;
       var $effect = $('.' + options.effectClass);
-      setTimeout(function(){ 
-        $effect.css({ 
+      setTimeout(function(){
+        $effect.css({
           'opacity': 0
           ,'transition':'all '+ ( options.duration / 1000 ) +'s ease-out'
         });
-        setTimeout(function(){ 
+        setTimeout(function(){
           $effect.remove();
-        }, options.duration * 1.5);        
+        }, options.duration * 1.5);
       }, options.duration);
       return _this;
     },
@@ -134,7 +134,7 @@
       }
       return eventX;
     },
-    
+
     targetY: function(event){
       var e = event.originalEvent;
       var eventY;
@@ -150,15 +150,15 @@
       if (x > 0 && y > 0) return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
       else return false;
     },
-    
+
     destroy: function(){
       return this.each(function(){
         var $this = $(this);
         $(window).unbind('.'+namespace);
         $this.removeData(namespace);
-      });      
+      });
     }
-    
+
   };
 
   $.fn.rippler = function(method){

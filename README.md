@@ -11,5 +11,20 @@ You can also use the buttons on the bootstrap.
 ##Example & Installation
 http://blivesta.github.io/rippler
 
+##Sidenote 
+
+Due to click errors on firefox and safari is rippler using 0 for default effectSize!
+
+```
+$(document).ready(function() {
+  $(".rippler").rippler({
+    effectClass      :  'rippler-effect'
+    ,effectSize      :  0      // Default size (width & height)
+    ,addElement      :  'div'   // e.g. 'svg'(feature)
+    ,duration        :  400
+  });
+});
+```
+
 ##License
 MIT license.
