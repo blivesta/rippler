@@ -25,18 +25,12 @@
             $this.on("touchstart."+ namespace, function(event) {
               var $self = $(this);
               methods.elementAdd.call(_this, $self, event);
-            });
-            $this.on("touchend." + namespace, function(event) {
-              var $self = $(this);
               methods.effect.call(_this, $self, event);
             });
           }else{
             $this.on("mousedown."+ namespace, function(event) {
               var $self = $(this);
               methods.elementAdd.call(_this, $self, event);
-            });
-            $this.on("mouseup."+ namespace, function(event) {
-              var $self = $(this);
               methods.effect.call(_this, $self, event);
             });
 
