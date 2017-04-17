@@ -8,10 +8,10 @@ You can also use the buttons on the bootstrap.
 
 ![demo image](./docs/assets/images/sample.gif)
 
-##Example & Installation
+## Example & Installation
 http://blivesta.github.io/rippler
 
-##Sidenote 
+## Sidenote 
 
 Due to click errors on firefox and safari is rippler using 0 for default effectSize!
 
@@ -26,5 +26,5 @@ $(document).ready(function() {
 });
 ```
 
-##License
+## License
 MIT license.
